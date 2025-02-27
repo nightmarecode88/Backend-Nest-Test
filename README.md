@@ -2,6 +2,9 @@
 
 ## Descripción
 Este proyecto es una API RESTful construida con NestJS para manejar usuarios y películas. Los datos se almacenan en una base de datos de Firestore de Google. La API está documentada con Swagger y se puede acceder a la documentación [aquí](https://backend-nest-test-w6iu.vercel.app/api).
+-Hace uso de la api de Star Wars https://swapi.dev/api , la creación-edición-eliminación y actualización con SWAPI la hacen los usuarios administradores (rol=1).
+-Los usuarios regulares (rol=0) solo pueden editar-eliminar su cuenta, tambien ver el listado de peliculas y el detalle de las mismas.
+
 
 ### Base de Datos
 - **Firestore** de Google
@@ -79,7 +82,7 @@ De respuesta, se devuelve un JSON con el parámetro `token`.
     ```
 
 ### Autorización:
-Ese token debe usarse como Authorization Bearer Token en los demás endpoints.
+Ese token debe usarse como Authorization Bearer Token en los demás endpoints (Esta configurado con expiración a los 30min)
 
 ### Roles de Usuarios:
 - **Rol 2**: admin (super administrador)
