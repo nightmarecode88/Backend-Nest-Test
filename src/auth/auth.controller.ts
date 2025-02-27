@@ -10,7 +10,7 @@ import { ApiTags, ApiBody, ApiOperation, ApiResponse, ApiBearerAuth } from '@nes
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @ApiOperation({ summary: 'Iniciar sesión' })
+  @ApiOperation({ summary: 'Iniciar sesión como administrador' })
   @ApiBody({
     schema: {
       type: 'object',

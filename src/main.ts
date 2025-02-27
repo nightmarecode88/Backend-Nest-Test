@@ -19,10 +19,6 @@ async function bootstrap() {
 
   app.useStaticAssets(join(__dirname, '..', 'node_modules', 'swagger-ui-dist'));
 
-  // Redirigir la raíz a otra ruta o servir una página vacía
-  app.use('/', (req, res) => {
-    res.send('Bienvenido a la API de Películas');
-  });
 
   await app.listen(process.env.PORT || 3000);
 }

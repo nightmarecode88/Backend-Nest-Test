@@ -48,7 +48,7 @@ export class UsuariosRegularesController {
   })
   @ApiResponse({ status: 200, description: 'Usuario eliminado' })
   @ApiResponse({ status: 404, description: 'Usuario no encontrado' })
-  @Post('delete_user')
+  @Delete('delete_user')
   async deleteUser(@Body() body, @Res() res: Response) {
     try {
       await this.usuariosRegularesService.deleteUser(body.delete);
@@ -97,7 +97,7 @@ export class UsuariosRegularesController {
   })
   @ApiResponse({ status: 200, description: 'Información del usuario obtenida correctamente' })
   @ApiResponse({ status: 404, description: 'Usuario no encontrado' })
-  @Get('view_user')
+  @Post('view_user')
   async viewUser(@Body() body, @Res() res: Response) {
     try {
       const user = await this.usuariosRegularesService.viewUser(body.token);
