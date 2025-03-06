@@ -87,7 +87,7 @@ De respuesta, se devuelve un JSON con el parámetro `token`.
     ```
 
 ### Autorización:
-Ese token debe usarse como Authorization Bearer Token en los demás endpoints (Esta configurado con expiración a los 30min)
+Ese token debe usarse como Authorization Bearer Token en los demás endpoints (Esta configurado con expiración a un año)
 
 ### Roles de Usuarios:
 - **Rol 2**: admin (super administrador)
