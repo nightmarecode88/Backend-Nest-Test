@@ -1,9 +1,12 @@
 # Proyecto de Backend con NestJS, Firebase y Swagger
 
 ## Descripción
-Este proyecto es una API RESTful construida con NestJS para manejar usuarios y películas. Los datos se almacenan en una base de datos de Firestore de Google. La API está documentada con Swagger y se puede acceder a la documentación [aquí](https://backend-nest-test-w6iu.vercel.app/api).
+Este proyecto es una API RESTful construida con NestJS para manejar usuarios y películas.
+- Los datos se almacenan en una base de datos de Firestore de Google. 
+- La API está documentada con Swagger y se puede acceder a la documentación [aquí](https://backend-nest-test-w6iu.vercel.app/api).
 - Hace uso de la api de Star Wars https://swapi.dev/api , la creación-edición-eliminación y actualización con SWAPI la hacen los usuarios administradores (rol=1).
 - Los usuarios regulares (rol=0) solo pueden editar-eliminar su cuenta, tambien ver el listado de peliculas y el detalle de las mismas.
+- Hay un super admin (rol 2) solo este puede crear administradores (rol 1) usuario "admin" pass: "admin"
 - [Postman file](./Api%20nest%20backend%20by%20NinghtmareCode88.postman_collection.json)
 
 
@@ -21,7 +24,7 @@ Este proyecto es una API RESTful construida con NestJS para manejar usuarios y p
 ## Instalación
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/tu-usuario/tu-repo.git
+    git clone https://github.com/nightmarecode88/Backend-Nest-Test.git
     cd tu-repo
     ```
 
@@ -31,21 +34,22 @@ Este proyecto es una API RESTful construida con NestJS para manejar usuarios y p
     ```
 
 3. Configura Firebase:
-    - Crea un proyecto en [Firebase](https://firebase.google.com/)
-    - Descarga el archivo de configuración `firebaseConfig.json` y colócalo en la raíz del proyecto.
+    - Ya posee la configuración en firebase.ts
 
 4. Configura las variables de entorno:
-    ```bash
-    cp .env.example .env
-    ```
-    - Edita el archivo `.env` con las variables de entorno necesarias.
+    - No posee
 
 ## Uso
 1. Inicia el servidor:
     ```bash
     npm run start
     ```
-
+## Prueba unitaria
+1. Inicia el servidor:
+    ```bash
+    npm run test
+    ```
+    - En esta prueba se crea un usuario, se hace login y se le pega al end point peliculas/lista, devolviendo todas las peliculas
 2. Accede a la documentación de Swagger:
     [https://backend-nest-test-w6iu.vercel.app/api](https://backend-nest-test-w6iu.vercel.app/api)
 

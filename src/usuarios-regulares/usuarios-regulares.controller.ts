@@ -34,6 +34,8 @@ export class UsuariosRegularesController {
     }
   }
 
+
+
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Eliminar un usuario' })
   @ApiBody({

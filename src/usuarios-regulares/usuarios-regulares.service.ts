@@ -1,12 +1,13 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { collection, getDocs, addDoc, query, where, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, getDoc, doc, addDoc, query, where, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class UsuariosRegularesService {
   constructor(private authService: AuthService) {}
-
+  private usuariosCollection = collection(db, 'usuarios');
+  
   async createUser(data: any): Promise<any> {
     const qName = query(collection(db, 'usuarios'), where('nombre', '==', data.nombre));
     const qEmail = query(collection(db, 'usuarios'), where('email', '==', data.email));
@@ -75,4 +76,14 @@ export class UsuariosRegularesService {
     const token = this.authService.generateToken(payload);
     return { token };
   }
+
+  async findUserByEmail(email: string): Promise<any> {
+    const querySnapshot = await getDoc(doc(this.usuariosCollection, email));
+    if (querySnapshot.exists()) {
+      return querySnapshot.data();
+    } else {
+      throw new Error('Usuario no encontrado');
+    }
+  }
+
 }
