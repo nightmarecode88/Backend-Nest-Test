@@ -25,7 +25,7 @@ Este proyecto es una API RESTful construida con NestJS para manejar usuarios y p
 1. Clona el repositorio:
     ```bash
     git clone https://github.com/nightmarecode88/Backend-Nest-Test.git
-    cd tu-repo
+    cd Backend-Nest-Test
     ```
 
 2. Instala las dependencias:
